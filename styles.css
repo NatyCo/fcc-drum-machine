@@ -1,0 +1,91 @@
+/* Reset standard browser margins, paddings, and enforce standard box layout */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Core background and alignment styles for the app wrapper */
+body {
+  background-color: #121214;
+  color: #ffffff;
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* Horizontally center the drum machine */
+  align-items: center;     /* Vertically center the drum machine */
+  padding: 20px;
+}
+
+/* Main outer container box of the drum machine */
+#drum-machine {
+  background-color: #1e1e24;
+  border-radius: 16px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Modern deep drop shadow */
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Space between the grid and the output display */
+}
+
+/* Styling for the new English header inside the machine */
+.machine-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase; 
+  letter-spacing: 0.1em;     
+  margin-bottom: 5px;        
+}
+
+/* Grid system container managing the 3x3 layout of drum pads */
+#pad-bank {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns of equal fluid width */
+  gap: 12px; /* Margins between individual buttons */
+}
+
+/* Interactive custom styled drum pad buttons */
+.drum-pad {
+  background-color: #2a2a35;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 24px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  box-shadow: 0 4px #1a1a22; /* Flat bottom border simulating a 3D physical button */
+}
+
+/* Subtle background illumination on hover state */
+.drum-pad:hover {
+  background-color: #353545;
+}
+
+/* Simulated 3D push down animation triggered on active click or code trigger */
+.drum-pad:active, .drum-pad.active {
+  transform: translateY(4px); /* Pushes button down by 4 pixels */
+  box-shadow: 0 0px #1a1a22;   /* flattens the bottom shadow completely */
+  background-color: #10b981;  /* Illuminates the active pad to green color */
+}
+
+/* LCD digital screen readout displaying sound data */
+#display {
+  background-color: #0f0f12;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #10b981; /* Glowing green font color */
+  min-height: 56px;
+  letter-spacing: 0.05em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
